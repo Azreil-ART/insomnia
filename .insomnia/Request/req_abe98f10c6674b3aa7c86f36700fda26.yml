@@ -1,0 +1,148 @@
+_id: req_abe98f10c6674b3aa7c86f36700fda26
+type: Request
+parentId: fld_779de8f4426f4f3a9c8122420ecc69a6
+modified: 1676099303152
+created: 1676092721455
+url: "{{ _.server_url }}/auth/login"
+name: Login
+description: >+
+  Для входа в систему используеться POST BASIC метод<br/>
+
+  Токен Basic отправляеться в headers > x-access-tokens
+
+
+  В ответ сервер возращяет jwt токен который нужно использовать в дальнейших запросах
+
+
+  JavaScript
+
+  ```js
+
+  let username = 'myUsername';
+
+  let password = '1234';
+
+  let auth = btoa(`${username}:${password}`);
+
+
+  // Authenticate (dummy API)
+
+  fetch('https://my-app.com/auth', {
+  	headers: {
+  		'x-access-tokens': `Basic ${auth}`
+  	}
+  }).then(function (response) {
+  	if (response.ok) {
+  		return response.json();
+  	}
+  	throw response;
+  }).then(function (data) {
+  	console.log(data);
+  }).catch(function (error) {
+  	console.warn(error);
+  });
+
+  ```
+
+
+  Node.JS
+
+  ```js
+
+  const http = require("http");
+
+
+  const options = {
+    "method": "POST",
+    "hostname": "localhost",
+    "port": "5000",
+    "path": "/auth/login",
+    "headers": {
+      "Content-Length": "0",
+      "Authorization": "Basic ТОКЕН"
+    }
+  };
+
+
+  const req = http.request(options, function (res) {
+    const chunks = [];
+
+    res.on("data", function (chunk) {
+      chunks.push(chunk);
+    });
+
+    res.on("end", function () {
+      const body = Buffer.concat(chunks);
+      console.log(body.toString());
+    });
+  });
+
+
+  req.end();
+
+  ```
+
+
+  Python:
+
+  ```python
+
+  import http.client
+
+
+  conn = http.client.HTTPConnection("localhost:5000")
+
+
+  payload = ""
+
+
+  headers = { 'Authorization': "Basic ТОКЕН" }
+
+
+  conn.request("POST", "/auth/login", payload, headers)
+
+
+  res = conn.getresponse()
+
+  data = res.read()
+
+
+  print(data.decode("utf-8"))
+
+  ```
+
+
+  Пример логов:
+
+  	> POST /auth/login HTTP/1.1
+  	> Host: localhost:5000
+  	> User-Agent: insomnia/2022.7.5
+  	> Authorization: Basic ТОКЕН
+  	> Accept: */*
+  	> Content-Length: 0
+
+  	< HTTP/1.1 200 OK
+  	< Server: Werkzeug/2.2.2 Python/3.11.2
+  	< Date: Sat, 11 Feb 2023 06:08:10 GMT
+  	< Content-Type: application/json
+  	< Content-Length: 128
+  	< Connection: close
+  	
+method: POST
+body: {}
+parameters: []
+headers: []
+authentication:
+  type: basic
+  useISO88591: false
+  disabled: false
+  username: bart1alen@mail.com
+  password: FNaF1122
+metaSortKey: -1676092735192
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

@@ -1,0 +1,20 @@
+_id: env_b57c773a18144d11aa34bdfc24ea17e1
+type: Environment
+parentId: env_377f64a37629d4ecd1feb45c1f2e9737228390bd
+modified: 1676099559470
+created: 1676099552389
+name: Test
+data:
+  server_url: "{{ _.url }}:{{ _.port }}"
+  url: http://localhost
+  port: 5000
+  token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNjc4NjkxMjIzfQ.ItvT7v04fNIaAGhiuhxlehXVTGdkjx_bgHMTMCCEve0
+dataPropertyOrder:
+  "&":
+    - server_url
+    - url
+    - port
+    - token
+color: null
+isPrivate: false
+metaSortKey: 1676099552389

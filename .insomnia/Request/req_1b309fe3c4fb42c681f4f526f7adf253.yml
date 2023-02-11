@@ -1,0 +1,21 @@
+_id: req_1b309fe3c4fb42c681f4f526f7adf253
+type: Request
+parentId: fld_7d863afd6afc45bdb4120dffc4396667
+modified: 1676099277203
+created: 1676093613073
+url: "{{ _.server_url }}/tag/all/"
+name: All
+description: ""
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1676093613073
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

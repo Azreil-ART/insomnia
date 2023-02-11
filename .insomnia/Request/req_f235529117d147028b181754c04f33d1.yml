@@ -1,0 +1,130 @@
+_id: req_f235529117d147028b181754c04f33d1
+type: Request
+parentId: fld_779de8f4426f4f3a9c8122420ecc69a6
+modified: 1676099305149
+created: 1676092356341
+url: "{{ _.server_url }}/auth/register"
+name: Register
+description: >+
+  Для регистрации необходимос отправить FormData с данными о пользователе
+
+  	email: 'email',
+      password: 'pass',
+      name: 'name',
+      surname: 'surname',
+      patroname: 'patroname',
+      types: 0 | 1 // пользователь - 0 , работодатель - 1
+
+  JavaScript
+
+  ```
+
+  const data = new FormData();
+
+  data.append("email", "email");
+
+  data.append("password", "password");
+
+  data.append("name", "name");
+
+  data.append("surname", "surname");
+
+  data.append("patroname", "patroname");
+
+  data.append("types", " 0  "); // пользователь - 0 
+
+
+  const xhr = new XMLHttpRequest();
+
+  xhr.withCredentials = true;
+
+
+  xhr.addEventListener("readystatechange", function () {
+    if (this.readyState === this.DONE) {
+      console.log(this.responseText);
+    }
+  });
+
+
+  xhr.open("POST", "http://localhost:5000/auth/register");
+
+
+  xhr.send(data);
+
+  ```
+
+
+  NODE.js
+
+  ```
+
+  const request = require('request');
+
+
+  const options = {
+    method: 'POST',
+    url: 'http://localhost:5000/auth/register',
+    headers: {'Content-Type': 'multipart/form-data; boundary=---011000010111000001101001'},
+    formData: {
+      email: 'bart1alen@mail.com',
+      password: 'FNaF1122',
+      name: 'Эльнур',
+      surname: 'Гулиев',
+      patroname: 'Махир оглы',
+      types: '1' // работодатель - 1
+    }
+  };
+
+
+  request(options, function (error, response, body) {
+    if (error) throw new Error(error);
+
+    console.log(body);
+  });
+
+
+  ```
+
+method: POST
+body:
+  mimeType: multipart/form-data
+  params:
+    - id: pair_58fc01a43670460dba49031ec7258c53
+      name: email
+      value: bart1alen@mail.com
+      description: ""
+    - id: pair_837927e39fda426e841a26757c6d2d6e
+      name: password
+      value: FNaF1122
+      description: ""
+    - id: pair_783e9e863d954fa99b81aecb68631085
+      name: name
+      value: Эльнур
+      description: ""
+    - id: pair_9513f6e5b11c4f1c9df90c9db6409fef
+      name: surname
+      value: Гулиев
+      description: ""
+    - id: pair_547d369c135a4eebbfcff1d3b2913ba3
+      name: patroname
+      value: Махир оглы
+      description: ""
+    - id: pair_eb9f6bddd5a44f1eb6a0d9fa2512d413
+      name: types
+      value: "1"
+      description: ""
+      type: text
+      multiline: false
+parameters: []
+headers:
+  - name: Content-Type
+    value: multipart/form-data
+authentication: {}
+metaSortKey: -1676092735142
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

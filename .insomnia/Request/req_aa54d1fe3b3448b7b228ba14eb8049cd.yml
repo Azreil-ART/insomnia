@@ -1,0 +1,76 @@
+_id: req_aa54d1fe3b3448b7b228ba14eb8049cd
+type: Request
+parentId: fld_779de8f4426f4f3a9c8122420ecc69a6
+modified: 1676099346762
+created: 1676092735242
+url: "{{ _.server_url }}/auth/logout"
+name: Logout
+description: |+
+  Метод для выхода из системы , по совместительству деактивации jwt ключа
+
+  Для выхода из системы , пользователь должен быть авторищован
+
+  примеры запроса на JS:
+  ```javascript
+  const options = {
+    method: 'POST',
+    headers: {
+      'x-access-tokens': 'ТОКЕН'
+    }
+  };
+
+  fetch('{{ _.server_url }}/auth/logout', options)
+    .then(response => response.json())
+    .then(response => console.log(response))
+    .catch(err => console.error(err));
+  ```
+
+  примеры запроса на Node.js:
+  ```
+  const http = require("http");
+
+  const options = {
+    "method": "POST",
+    "hostname": "{{ _.server_url }}",
+    "port": "5000",
+    "path": "/auth/logout",
+    "headers": {
+      "x-access-tokens": "ТОКЕН",
+      "Content-Length": "0"
+    }
+  };
+
+  const req = http.request(options, function (res) {
+    const chunks = [];
+
+    res.on("data", function (chunk) {
+      chunks.push(chunk);
+    });
+
+    res.on("end", function () {
+      const body = Buffer.concat(chunks);
+      console.log(body.toString());
+    });
+  });
+
+  req.end();
+  ```
+
+
+method: POST
+body: {}
+parameters: []
+headers:
+  - id: pair_6adb092fa50048c9b083836355cfef3d
+    name: x-access-tokens
+    value: "{{ _.token }}"
+    description: ""
+authentication: {}
+metaSortKey: -1676092735242
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

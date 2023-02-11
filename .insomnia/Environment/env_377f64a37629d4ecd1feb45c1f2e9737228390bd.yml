@@ -1,0 +1,20 @@
+_id: env_377f64a37629d4ecd1feb45c1f2e9737228390bd
+type: Environment
+parentId: wrk_41be352c89b24864b1710fb901c4b8fc
+modified: 1676099550656
+created: 1676092356337
+name: Base Environment
+data:
+  server_url: "{{ _.url }}:{{ _.port }}"
+  url: http://localhost
+  port: 5000
+  token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNjc4NjkxMjIzfQ.ItvT7v04fNIaAGhiuhxlehXVTGdkjx_bgHMTMCCEve0
+dataPropertyOrder:
+  "&":
+    - server_url
+    - url
+    - port
+    - token
+color: null
+isPrivate: false
+metaSortKey: 1676092356337
