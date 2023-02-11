@@ -1,7 +1,7 @@
 _id: req_f235529117d147028b181754c04f33d1
 type: Request
 parentId: fld_779de8f4426f4f3a9c8122420ecc69a6
-modified: 1676099305149
+modified: 1676107236499
 created: 1676092356341
 url: "{{ _.server_url }}/auth/register"
 name: Register
@@ -46,7 +46,7 @@ description: >+
   });
 
 
-  xhr.open("POST", "http://localhost:5000/auth/register");
+  xhr.open("POST", "{{ _.server_url }}/auth/register");
 
 
   xhr.send(data);
@@ -63,7 +63,7 @@ description: >+
 
   const options = {
     method: 'POST',
-    url: 'http://localhost:5000/auth/register',
+    url: '{{ _.server_url }}/auth/register',
     headers: {'Content-Type': 'multipart/form-data; boundary=---011000010111000001101001'},
     formData: {
       email: 'bart1alen@mail.com',

@@ -1,7 +1,7 @@
 _id: req_abe98f10c6674b3aa7c86f36700fda26
 type: Request
 parentId: fld_779de8f4426f4f3a9c8122420ecc69a6
-modified: 1676099303152
+modified: 1676107306420
 created: 1676092721455
 url: "{{ _.server_url }}/auth/login"
 name: Login
@@ -27,7 +27,7 @@ description: >+
 
   // Authenticate (dummy API)
 
-  fetch('https://my-app.com/auth', {
+  fetch('{{ _.server_url }}/auth/login', {
   	headers: {
   		'x-access-tokens': `Basic ${auth}`
   	}
@@ -54,8 +54,8 @@ description: >+
 
   const options = {
     "method": "POST",
-    "hostname": "localhost",
-    "port": "5000",
+    "hostname": "{{ _.url }}",
+    "port": "{{ _.port }}",
     "path": "/auth/login",
     "headers": {
       "Content-Length": "0",
@@ -90,7 +90,7 @@ description: >+
   import http.client
 
 
-  conn = http.client.HTTPConnection("localhost:5000")
+  conn = http.client.HTTPConnection("{{ _.server_url }}")
 
 
   payload = ""
